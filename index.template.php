@@ -120,22 +120,6 @@ function template_main_above() {
 								</div>
 							</div>
 						</div>
-						<div id="navcontainer">
-							<div id="navbar">
-								<ul id="mainlevel">
-									<li><a href="http://puremvc.org/component/option,com_frontpage/Itemid,1/" class="mainlevel" id="active_menu">Home</a></li>
-									<li><a href="http://puremvc.org/content/view/67/178/" class="mainlevel">About</a></li>
-									<li><a href="http://puremvc.github.com" class="mainlevel">Code</a></li>
-									<li><a href="http://puremvc.org/content/view/98/189/" class="mainlevel">Docs</a></li>
-									<li><a href="http://puremvc.org/content/section/3/188/" class="mainlevel">FAQ</a></li>
-									<li><a href="http://forums.puremvc.org" class="mainlevel">Forums</a></li>
-									<li><a href="http://puremvc.org/content/category/1/1/181/" class="mainlevel">News</a></li>
-									<li><a href="http://puremvc.org/content/blogsection/9/176/" class="mainlevel">Showcase</a></li>
-									<li><a href="http://puremvc.org/component/option,com_contact/Itemid,3/" class="mainlevel">Contact</a></li>
-									<li><a href="http://jobs.puremvc.org/" class="mainlevel">Jobs</a></li>
-								</ul>
-							</div>
-						</div>
 					</div>
 				</td>
 				<td rowspan="4" valign="top" id="rightshadow"><img src="http://puremvc.org/templates/js_element_blue/images/tr.png" alt="topright" width="5" height="145"/>
