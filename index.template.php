@@ -2,9 +2,9 @@
 // Initialize the template... mainly little settings.
 function template_init()
 {
-	global $context, $settings, $options, $txt;
+    global $context, $settings, $options, $txt;
 
-	/* Use images from default theme when using templates from the default theme?
+    /* Use images from default theme when using templates from the default theme?
 		if this is 'always', images from the default theme will be used.
 		if this is 'defaults', images from the default theme will only be used with default templates.
 		if this is 'never' or isn't set at all, images from the default theme will not be used. */
@@ -35,8 +35,8 @@ function template_main_above() {
 
 	// Show right to left and the character set for ease of translating.
 	?>
-<!doctype html public "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en" class="no-js">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
 	<meta http-equiv="Content-Style-Type" content="text/css"/>
@@ -48,12 +48,13 @@ function template_main_above() {
 	<script type="text/javascript" src="/Themes/default/script.js?fin11"></script>
 
 	<link rel="shortcut icon" href="http://puremvc.org/images/favicon.ico"/>
-	
+	<!--
 	<link rel="stylesheet" href="http://puremvc.org/templates/js_element_blue/css/template_css.css" media="screen" type="text/css"/>
 	<link rel="alternate stylesheet" href="http://puremvc.org/templates/js_element_blue/css/800.css" type="text/css" title="fluid"/>
+    -->
 <script language="javascript" type="text/javascript" src="http://puremvc.org/templates/js_element_blue/js/styleswitcher.js"></script>
 
-<?php echo 
+<?php echo
 	'<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
 		var smf_theme_url = "', $settings['theme_url'], '";
 		var smf_images_url = "', $settings['images_url'], '";
@@ -62,7 +63,11 @@ function template_main_above() {
 		var smf_charset = "', $context['character_set'], '";
 	// ]]></script>
 	<title>', $context['page_title'], '</title>
+	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/style.css?fin11" />
+	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/main.css" />
+	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/separator-component.css" />
+
 	<link rel="stylesheet" type="text/css" href="', $settings['default_theme_url'], '/print.css?fin11" media="print" />';
 
 	/* Internet Explorer 4/5 and Opera 6 just don't do font sizes properly. (they are big...)
@@ -101,33 +106,24 @@ function template_main_above() {
 	</head>
 <body id="pagebg" onload="PreloadFlag = true;">
 <script type="text/javascript">js_init();</script>
-	<div id="twrap">
-		<table width="100%" border="0" cellspacing="0" cellpadding="0" id="maintable">
-			<tr>
-				<td rowspan="4" valign="top" id="leftshadow"><img src="http://puremvc.org/templates/js_element_blue/images/tl.png" alt="topleft" width="5" height="145"/>
-				</td>
-				<td colspan="1" valign="top" id="headerblock">
-					<div id="headercontainer">
-						<div id="header">
-							<div id="logo"><h1><a href="http://puremvc.org/index.php?option=com_frontpage&amp;Itemid=1" title="PureMVC">PureMVC</a></h1>
-							</div>
-							<div id="accessbuttons">
-								<div class="access"><a href="index.php" title="Increase Text Size" onClick="changeFontSize(1);return false;"><img src="http://puremvc.org/templates/js_element_blue/images/larger.png" alt="larger" width="20" height="20" border="0"/></a><a href="index.php" title="Decrease Text Size" onClick="changeFontSize(-1);return false;"><img src="http://puremvc.org/templates/js_element_blue/images/smaller.png" alt="smaller" width="17" height="17" border="0"/></a><a href="index.php" title="Revert text styles to default" onClick="revertStyles(); return false;"><img src="http://puremvc.org/templates/js_element_blue/images/reset.png" alt="reset" width="20" height="20" border="0"/></a><a href="http://forums.puremvc.org/index.php?type=rss;limit=100;feed=rss2.0;action=.xml" title="RSS Syndicate" id="rss"><img src="http://puremvc.org/templates/js_element_blue/images/rssicon.png" alt="larger" width="20" height="20" border="0"/></a><a href="http://futurescale.com" title="Futurescale, Inc." id="futurescale"><img src="http://puremvc.org/templates/js_element_blue/images/fs-icon-button.png" alt="Futurescale, Inc." width="20" height="20" border="0"/></a>
-									<ul id="theme">
-										<li id="theme-fixed"><a href="#" onClick="setActiveStyleSheet('', 1);return false;" title="Switch to fixed-width version"><img src="http://puremvc.org/templates/js_element_blue/images/fixed.png" width="20" height="20" alt="fixed-width"/></a></li>
-										<li id="theme-fluid"><a href="#" onClick="setActiveStyleSheet('fluid', 1);return false;" title="Switch to fluid-width version"><img src="http://puremvc.org/templates/js_element_blue/images/fluid.png" width="20" height="20" alt="fluid-width"/></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</td>
-				<td rowspan="4" valign="top" id="rightshadow"><img src="http://puremvc.org/templates/js_element_blue/images/tr.png" alt="topright" width="5" height="145"/>
-				</td>
-			</tr>
-			<tr>
-				<td id="main" align="center">
-					<table width="99%" align="center">
+<div class="container">
+
+			<!-- TOP NAV ITEMS -->
+			<div class="puremvc-top clearfix">
+				<a target="_blank" href="http://futurescale.com"><span>Futurescale, Inc.</span></a>
+				<span class="right"><a href="http://puremvc.org"><span>PureMVC Home</span></a></span>
+			</div>
+
+			<!-- MASTHEAD -->
+			<header>
+
+				<!-- LOGO/TITLE/SLOGAN -->
+				<img src="Themes/PureMVC/images/puremvc-logo.png"/>
+				<h1>The PureMVC Framework <span>Code at the Speed of Thought</span></h1>
+
+			</header>
+<section>
+    <table width="99%" align="center">
 	<tr><td>
 				<?php
 
@@ -183,14 +179,12 @@ function template_main_above() {
 
 	echo '
 	</table>
-
-	<br />
 	<table cellspacing="0" cellpadding="10" border="0" align="center" class="tborder">
 		<tr><td valign="top" style="background-color: #ffffff;">';
 
 ?>
 
-				
+
 <?php
 }
 
@@ -201,50 +195,53 @@ function template_main_below()
 
 	echo '
 		</td></tr>
-	</table>';
+        	</table></td></tr>
+                    	</table>';
 
-	// Show a vB style login for quick login?
-	if ($context['show_quick_login'])
-	{
-		echo '
-	<table cellspacing="0" cellpadding="0" border="0" align="center">
-		<tr><td nowrap="nowrap" align="right">
-			<script language="JavaScript" type="text/javascript" src="', $settings['default_theme_url'], '/sha1.js"></script>
-
-			<form action="', $scripturl, '?action=login2" method="post" accept-charset="', $context['character_set'], '"', empty($context['disable_login_hashing']) ? ' onsubmit="hashLoginPassword(this, \'' . $context['session_id'] . '\');"' : '', '><br />
-				<input type="text" name="user" size="7" />
-				<input type="password" name="passwrd" size="7" />
-				<select name="cookielength">
-					<option value="60">', $txt['smf53'], '</option>
-					<option value="1440">', $txt['smf47'], '</option>
-					<option value="10080">', $txt['smf48'], '</option>
-					<option value="43200">', $txt['smf49'], '</option>
-					<option value="-1" selected="selected">', $txt['smf50'], '</option>
-				</select>
-				<input type="submit" value="', $txt[34], '" /><br />
-				', $txt['smf52'], '
-				<input type="hidden" name="hash_passwrd" value="" />
-			</form>
-		</td></tr>
-	</table>';
-	}
-
-	// Don't show a login box, just a break.
-	else
-		echo '
+    echo '
 	<br />';
 
 	// Show the "Powered by" and "Valid" logos, as well as the copyright.  Remember, the copyright must be somewhere!
 	echo '
-	<br />
-
-	<table cellspacing="0" cellpadding="3" border="0" align="center">
-		<tr>
-			<td valign="middle" align="center">
-				', theme_copyright(), '
-			</td>
-		</tr>
-	</table>';
+	</section>
+    <svg id="clouds" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" style="margin-bottom:-10;" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M-5 100 Q 0 20 5 100 Z
+                 M0 100 Q 5 0 10 100
+                 M5 100 Q 10 30 15 100
+                 M10 100 Q 15 10 20 100
+                 M15 100 Q 20 30 25 100
+                 M20 100 Q 25 -10 30 100
+                 M25 100 Q 30 10 35 100
+                 M30 100 Q 35 30 40 100
+                 M35 100 Q 40 10 45 100
+                 M40 100 Q 45 50 50 100
+                 M45 100 Q 50 20 55 100
+                 M50 100 Q 55 40 60 100
+                 M55 100 Q 60 60 65 100
+                 M60 100 Q 65 50 70 100
+                 M65 100 Q 70 20 75 100
+                 M70 100 Q 75 45 80 100
+                 M75 100 Q 80 30 85 100
+                 M80 100 Q 85 20 90 100
+                 M85 100 Q 90 50 95 100
+                 M90 100 Q 95 25 100 100
+                 M95 100 Q 100 15 105 100 Z">
+        </path>
+    </svg>
+	<section class="related" style="padding-bottom:50%;">
+		<br/>
+		<br/>
+		<br/>
+	<div>
+		', theme_copyright(), '
+        <span class="smalltext" style="display: inline; visibility: visible; font-family: Verdana, Arial, sans-serif;">
+         | <a href="http://futurescale.com" title="Futurescale, Inc." target="_blank">Content &copy; 2006-2016, Futurescale, Inc.</a>
+		</span>
+		<br/>
+		<br/>
+		<br/>
+        <img src="Themes/PureMVC/images/futurescale.ico">
+    </div>';
 
 	// Show the load time?
 	if ($context['show_load_time'])
@@ -257,20 +254,10 @@ function template_main_below()
 	echo '
 	<div id="ajax_in_progress" style="display: none;', $context['browser']['is_ie'] && !$context['browser']['is_ie7'] ? 'position: absolute;' : '', '">', $txt['ajax_in_progress'], '</div>';
 
-	?></td>
-			</tr>
-		</table>
-		</td>
-			</tr>
-		</table>
-		<div id="footerbar">
-			<div class="rightcorner">
-			</div>
-		</div>
+	?>
 	</div>
-	<div class="designer">
-		<a href="http://futurescale.com" title="Futurescale, Inc.">Copyright © 2006-2008 Futurescale, Inc.</a>
-	</div>
+    </section>
+	</div><!-- container -->
 <script type="text/javascript"><!-- // --><![CDATA[
 			window.addEventListener("load", smf_codeFix, false);
 			function smf_codeFix()
