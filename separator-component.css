@@ -24,10 +24,10 @@ body {
 
 section {
 	position: relative;
-	padding-top: 10px;
+	padding-top: 5%;
 	padding-left: 10%;
 	padding-right: 10%;
-	padding-bottom: 10%;
+	padding-bottom: 5%;
 	background: #2980b9;
 	color: #fff;
 	text-align: center;
@@ -109,8 +109,7 @@ section::after {
 }
 
 /* Triangles */
-.ss-style-triangles::before,
-.ss-style-triangles::after {
+.ss-style-triangles::before {
 	left: 50%;
 	width: 100px;
 	height: 100px;
@@ -121,12 +120,6 @@ section::after {
 .ss-style-triangles::before {
 	top: -50px;
 	background: #2980b9;
-}
-
-.ss-style-triangles::after {
-	bottom: -50px;
-	z-index: 10;
-	background: inherit;
 }
 
 /* Clouds */

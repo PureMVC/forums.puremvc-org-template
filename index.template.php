@@ -63,10 +63,12 @@ function template_main_above() {
 		var smf_charset = "', $context['character_set'], '";
 	// ]]></script>
 	<title>', $context['page_title'], '</title>
-	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/style.css?fin11" />
+	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/main.css" />
+	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/icons.css" />
 	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/separator-component.css" />
+	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/icon-hover-component.css" />
 
 	<link rel="stylesheet" type="text/css" href="', $settings['default_theme_url'], '/print.css?fin11" media="print" />';
 
@@ -204,44 +206,37 @@ function template_main_below()
 	// Show the "Powered by" and "Valid" logos, as well as the copyright.  Remember, the copyright must be somewhere!
 	echo '
 	</section>
-    <svg id="clouds" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" style="margin-bottom:-10;" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <path d="M-5 100 Q 0 20 5 100 Z
-                 M0 100 Q 5 0 10 100
-                 M5 100 Q 10 30 15 100
-                 M10 100 Q 15 10 20 100
-                 M15 100 Q 20 30 25 100
-                 M20 100 Q 25 -10 30 100
-                 M25 100 Q 30 10 35 100
-                 M30 100 Q 35 30 40 100
-                 M35 100 Q 40 10 45 100
-                 M40 100 Q 45 50 50 100
-                 M45 100 Q 50 20 55 100
-                 M50 100 Q 55 40 60 100
-                 M55 100 Q 60 60 65 100
-                 M60 100 Q 65 50 70 100
-                 M65 100 Q 70 20 75 100
-                 M70 100 Q 75 45 80 100
-                 M75 100 Q 80 30 85 100
-                 M80 100 Q 85 20 90 100
-                 M85 100 Q 90 50 95 100
-                 M90 100 Q 95 25 100 100
-                 M95 100 Q 100 15 105 100 Z">
-        </path>
-    </svg>
-	<section class="related" style="padding-bottom:50%;">
+
+    <!-- COMMUNITY -->
+    <section class="col-2 color">
+        <div class="hi-icon-wrap hi-icon-effect-1 hi-icon-effect-1a">
+            <a target="_blank" href="http://stackoverflow.com/search?q=puremvc" class="hi-icon icon-stackoverflow">Stack Overflow</a>
+            <a target="_blank" href="https://github.com/search?utf8=%E2%9C%93&q=puremvc&type=Repositories&ref=searchresults" class="hi-icon icon-github">GitHub</a>
+            <a target="_blank" href="https://www.linkedin.com/groups/71061" class="hi-icon icon-linkedin">Linked In</a>
+            <a target="_blank" href="https://plus.google.com/+puremvc" class="hi-icon icon-google-plus3">Google Plus</a>
+            <a target="_blank" href="https://twitter.com/puremvc" class="hi-icon icon-twitter">Twitter</a>
+        </div>
+
+    </section>
+
+    <!-- COPYRIGHT / LOGO -->
+	<section class="related ss-style-triangles">
 		<br/>
 		<br/>
 		<br/>
-	<div>
-		', theme_copyright(), '
-        <span class="smalltext" style="display: inline; visibility: visible; font-family: Verdana, Arial, sans-serif;">
-         | <a href="http://futurescale.com" title="Futurescale, Inc." target="_blank">Content &copy; 2006-2016, Futurescale, Inc.</a>
-		</span>
-		<br/>
-		<br/>
-		<br/>
-        <img src="Themes/PureMVC/images/futurescale.ico">
-    </div>';
+        <div>
+            ', theme_copyright(), '
+            <span class="smalltext" style="display: inline; visibility: visible; font-family: Verdana, Arial, sans-serif;">
+             | <a href="http://futurescale.com" title="Futurescale, Inc." target="_blank">Content &copy; 2006-2016, Futurescale, Inc.</a>
+            </span>
+            <br/>
+            <br/>
+            <br/>
+            <img src="Themes/PureMVC/images/futurescale.ico">
+        </div>
+        <br/>
+        <br/>
+        <br/>';
 
 	// Show the load time?
 	if ($context['show_load_time'])
@@ -278,7 +273,7 @@ document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.
 <script type="text/javascript">
 var pageTracker = _gat._getTracker("UA-1967942-5");
 pageTracker._trackPageview();
-</script>	
+</script>
 </body>
 </html>
 <?php
